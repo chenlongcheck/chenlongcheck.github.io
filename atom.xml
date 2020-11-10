@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chenlongcheck.github.io</id>
     <title>个人网站</title>
-    <updated>2020-11-10T02:02:08.748Z</updated>
+    <updated>2020-11-10T02:59:53.880Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chenlongcheck.github.io"/>
     <link rel="self" href="https://chenlongcheck.github.io/atom.xml"/>
@@ -10,6 +10,122 @@
     <logo>https://chenlongcheck.github.io/images/avatar.png</logo>
     <icon>https://chenlongcheck.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 个人网站</rights>
+    <entry>
+        <title type="html"><![CDATA[圆弧CSS绘制]]></title>
+        <id>https://chenlongcheck.github.io/post/yuan-hu-css-hui-zhi/</id>
+        <link href="https://chenlongcheck.github.io/post/yuan-hu-css-hui-zhi/">
+        </link>
+        <updated>2020-11-10T02:56:37.000Z</updated>
+        <content type="html"><![CDATA[<p>通过伪类的定位居中到父元素实现，直接上CSS</p>
+<pre><code class="language-css">#box {
+    height: 100px;
+    position: relative;
+    z-index: -1;
+    overflow: hidden;
+}
+
+#box::after {
+    content: '';
+    width: 140%;
+    height: 100px;
+    position: absolute;
+    left: -20%;
+    top: 0;
+    z-index: -1;
+    border-radius: 0 0 50% 50%;
+    background-color: aquamarine;
+}</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[文件下载]]></title>
+        <id>https://chenlongcheck.github.io/post/wen-jian-xia-zai/</id>
+        <link href="https://chenlongcheck.github.io/post/wen-jian-xia-zai/">
+        </link>
+        <updated>2020-11-10T02:18:37.000Z</updated>
+        <content type="html"><![CDATA[<p>下载文档类型时可以用Blod对象接受<br>
+1 对header没有特殊要求时</p>
+<pre><code class="language-js">downloadFile(url) {
+    url = url[0] !== 'h' ? `http://${url}` : url
+    this.getBlob(url).then(blob =&gt; {
+        this.saveAs(blob);
+    });
+}
+getBlob(url) {
+    return new Promise(resolve =&gt; {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.responseType = 'blob';
+        xhr.onload = () =&gt; {
+            if (xhr.status === 200) {
+                resolve(xhr.response);
+            }
+        };
+        xhr.send();
+    });
+}
+saveAs(blob) {
+    if (window.navigator.msSaveOrOpenBlob) {
+        navigator.msSaveBlob(blob);
+    } else {
+        const link = document.createElement('a');
+        const body = document.querySelector('body');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = '下载后文件名.xlsx';
+        link.style.display = 'none';
+        body.appendChild(link);
+
+        link.click();
+        body.removeChild(link);
+        window.URL.revokeObjectURL(link.href);
+    }
+}
+</code></pre>
+<p>2 对header有要求时可定义方法（注意请求方式是blod）</p>
+<pre><code class="language-js">function getExcel(path, data) {
+    return axios.get(path, { params: data, headers: { &quot;token&quot;: 12345 }, responseType: &quot;blob&quot; })
+}
+</code></pre>
+<p>处理正常返回时的Blod对象数据</p>
+<pre><code class="language-js">var blob = new Blob([res.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8' });   // type是接受的对应数据类型-这里是以excel为例-下面跟情况1的下载基本一致
+var downloadElement = document.createElement('a');
+var href = window.URL.createObjectURL(blob); //创建下载的链接
+downloadElement.href = href;
+downloadElement.download = '下载后文件名'; //
+document.body.appendChild(downloadElement);
+downloadElement.click(); //点击下载
+document.body.removeChild(downloadElement); //下载完成移除元素
+window.URL.revokeObjectURL(href); //释放掉blob对象 
+</code></pre>
+<p>提供常用下载type类型</p>
+<pre><code class="language-text">.doc	application/msword
+.docx	application/vnd.openxmlformats-officedocument.wordprocessingml.document
+.xls	application/vnd.ms-excel
+.xlsx	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+.ppt	application/vnd.ms-powerpoint
+.pptx	application/vnd.openxmlformats-officedocument.presentationml.presentation
+需注意的是返回的数据都是Blod对象，解析错误消息可以使用FileReader
+```js
+let data = error.response.data, errMsg = null;
+var reader = new FileReader();
+reader.readAsText(data, 'utf-8');
+reader.onload = () =&gt; {
+    errMsg = JSON.parse(reader.result);
+}
+</code></pre>
+<p>3 下载时由于跨域等限制无法重命名</p>
+<pre><code class="language-js">&lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/downloadjs/1.3.1/download.min.js&quot;&gt;&lt;/script&gt;  // 引入第三方download.js
+function downloadIamge() {
+    var x = new XMLHttpRequest();
+    x.open(&quot;GET&quot;, &quot;https://mirror-gold-cdn.xitu.io/1693847d078aa892aaa?imageView2/1/w/100/h/100/q/85/format/webp/interlace/1&quot;, true);
+    x.responseType = &quot;blob&quot;;
+    x.onload = function (e) {
+        download(e.target.response, &quot;awesomesauce.png&quot;, &quot;image/png&quot;);
+    };
+    x.send();
+}</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[防抖和节流]]></title>
         <id>https://chenlongcheck.github.io/post/debounce-throttle/</id>
@@ -55,255 +171,6 @@ function fn2() {
 }
 let lazyFunc2 = throttle(fn2, 1000);
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[飞入效果(购物车)]]></title>
-        <id>https://chenlongcheck.github.io/post/jQuery-fly/</id>
-        <link href="https://chenlongcheck.github.io/post/jQuery-fly/">
-        </link>
-        <updated>2020-10-22T06:33:03.000Z</updated>
-        <summary type="html"><![CDATA[<p>基于jQuery的fly来实现2点间的曲线运动，适配移动端。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>基于jQuery的fly来实现2点间的曲线运动，适配移动端。</p>
-<!-- more -->
-<p>HTML</p>
-<pre><code class="language-Html">&lt;div class=&quot;circle&quot;&gt;&lt;/div&gt;
-&lt;div class=&quot;end&quot;&gt;&lt;/div&gt;
-</code></pre>
-<p>CSS</p>
-<pre><code class="language-css"> .circle {
-            width: 50px;
-            height: 50px;
-            position: absolute;
-            background: red;
-            border-radius: 50%;
-            top: 25%;
-        }
-
-.end {
-            width: 50px;
-            height: 50px;
-            position: absolute;
-            background: blue;
-            border-radius: 50%;
-            top: 65%;
-            left: 20%;
-        }
-
-.ballFly {
-            width: 50px;
-            height: 50px;
-            background-color: red;
-            border-radius: 100%;
-        }
-</code></pre>
-<p>JS</p>
-<pre><code class="language-javascript">    var endOffset = $('.end').offset();
-    $(window).resize(function () {
-        endOffset = $('.end').offset();	//当页面发生变化时重新计算属性值
-    })
-    $('.circle').click(function (event) {
-
-        var flyer = $(&quot;&lt;div class=\&quot;ballFly\&quot;&gt;&lt;/div&gt;&quot;).clone();//动态创建抛物体对象并克隆
-        var scrollTop = $(document).scrollTop();//当页面有滚动条时
-        flyer.fly({
-            start: {
-                left: event.pageX,
-                top: event.pageY - scrollTop
-            },
-            end: {
-                left: endOffset.left + 20,
-                top: endOffset.top + 20,
-                width: 0,
-                height: 0
-            },
-            onEnd: function () {
-                $('.end').css({
-                    background: 'red'
-                });
-                setTimeout(function () {
-                    $('.end').css({
-                        background: 'blue'
-                    });
-                }, 200); $(flyer).remove();
-            }
-        });
-    });
-</code></pre>
-<p><strong>fly.js (源码)</strong></p>
-<pre><code class="language-javascript">(function ($) {
-        $.fly = function (element, options) {
-            // 默认值
-            var defaults = {
-                version: '1.0.0',
-                autoPlay: true,
-                vertex_Rtop: 20, // 默认顶点高度top值
-                speed: 1.2,
-                start: {}, // top, left, width, height
-                end: {},
-                onEnd: $.noop
-            };
-
-            var self = this,
-                $element = $(element);
-
-            /**
-             * 初始化组件，new的时候即调用
-             */
-            self.init = function (options) {
-                this.setOptions(options);
-                !!this.settings.autoPlay &amp;&amp; this.play();
-            };
-
-            /**
-             * 设置组件参数
-             */
-            self.setOptions = function (options) {
-                this.settings = $.extend(true, {}, defaults, options);
-                var settings = this.settings,
-                    start = settings.start,
-                    end = settings.end;
-
-                $element.css({
-                    marginTop: '0px',
-                    marginLeft: '0px',
-                    position: 'fixed'
-                }).appendTo('body');
-                // 运动过程中有改变大小
-                if (end.width != null &amp;&amp; end.height != null) {
-                    $.extend(true, start, {
-                        width: $element.width(),
-                        height: $element.height()
-                    });
-                }
-                // 运动轨迹最高点top值
-                var vertex_top = Math.min(start.top, end.top) - Math.abs(start.left - end.left) / 3;
-                if (vertex_top &lt; settings.vertex_Rtop) {
-                    // 可能出现起点或者终点就是运动曲线顶点的情况
-                    vertex_top = Math.min(settings.vertex_Rtop, Math.min(start.top, end.top));
-                }
-
-                /**
-                 * ======================================================
-                 * 运动轨迹在页面中的top值可以抽象成函数 y = a * x*x + b;
-                 * a = curvature
-                 * b = vertex_top
-                 * ======================================================
-                 */
-
-                var distance = Math.sqrt(Math.pow(start.top - end.top, 2) + Math.pow(start.left - end.left, 2)),
-                    // 元素移动次数
-                    steps = Math.ceil(Math.min(Math.max(Math.log(distance) / 0.05 - 75, 30), 100) / settings.speed),
-                    ratio = start.top == vertex_top ? 0 : -Math.sqrt((end.top - vertex_top) / (start.top - vertex_top)),
-                    vertex_left = (ratio * start.left - end.left) / (ratio - 1),
-                    // 特殊情况，出现顶点left==终点left，将曲率设置为0，做直线运动。
-                    curvature = end.left == vertex_left ? 0 : (end.top - vertex_top) / Math.pow(end.left - vertex_left, 2);
-
-                $.extend(true, settings, {
-                    count: -1, // 每次重置为-1
-                    steps: steps,
-                    vertex_left: vertex_left,
-                    vertex_top: vertex_top,
-                    curvature: curvature
-                });
-            };
-
-            /**
-             * 开始运动，可自己调用
-             */
-            self.play = function () {
-                this.move();
-            };
-
-            /**
-             * 按step运动
-             */
-            self.move = function () {
-                var settings = this.settings,
-                    start = settings.start,
-                    count = settings.count,
-                    steps = settings.steps,
-                    end = settings.end;
-                // 计算left top值
-                var left = start.left + (end.left - start.left) * count / steps,
-                    top = settings.curvature == 0 ? start.top + (end.top - start.top) * count / steps : settings.curvature * Math.pow(left - settings.vertex_left, 2) + settings.vertex_top;
-                // 运动过程中有改变大小
-                if (end.width != null &amp;&amp; end.height != null) {
-                    var i = steps / 2,
-                        width = end.width - (end.width - start.width) * Math.cos(count &lt; i ? 0 : (count - i) / (steps - i) * Math.PI / 2),
-                        height = end.height - (end.height - start.height) * Math.cos(count &lt; i ? 0 : (count - i) / (steps - i) * Math.PI / 2);
-                    $element.css({
-                        width: width + &quot;px&quot;,
-                        height: height + &quot;px&quot;,
-                        &quot;font-size&quot;: Math.min(width, height) + &quot;px&quot;
-                    });
-                }
-                $element.css({
-                    left: left + &quot;px&quot;,
-                    top: top + &quot;px&quot;
-                });
-                settings.count++;
-                // 定时任务
-                var time = window.requestAnimationFrame($.proxy(this.move, this));
-                if (count == steps) {
-                    window.cancelAnimationFrame(time);
-                    // fire callback
-                    settings.onEnd.apply(this);
-                }
-            };
-
-            /**
-             * 销毁
-             */
-            self.destory = function () {
-                $element.remove();
-            };
-
-            self.init(options);
-        };
-
-        // add the plugin to the jQuery.fn object
-        $.fn.fly = function (options) {
-            return this.each(function () {
-                if (undefined == $(this).data('fly')) {
-                    $(this).data('fly', new $.fly(this, options));
-                }
-            });
-        };
-    })(jQuery);</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://chenlongcheck.github.io/post/hello-gridea/</id>
-        <link href="https://chenlongcheck.github.io/post/hello-gridea/">
-        </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用😀 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用😀 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
 ]]></content>
     </entry>
 </feed>
