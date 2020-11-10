@@ -3,7 +3,7 @@
         <head>
         <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no" />
         <meta charset="utf-8">
-        <title>圆弧CSS绘制 | 个人网站</title>
+        <title>圆弧CSS绘制和常用网页宽高属性 | 个人网站</title>
         <link rel="stylesheet" href="https://chenlongcheck.github.io/styles/main.css">
         <link rel="stylesheet" href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css">
         <link href="https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css" rel="stylesheet">
@@ -56,9 +56,9 @@
                 <div class="mdui-row">
                         <div class="mdui-col-md-8 mdui-col-offset-md-2 ">
                                 <article class="mdui-p-a-2 post animated fadeIn" style="animation-delay: 0.8s;animation-duration: 2s">
-                                    <div class="post-title  mdui-m-b-1">圆弧CSS绘制</div>
-                                    <div class="mdui-typo-body-2 mdui-m-b-2" datetime="2020-11-10 10:56:37">2020-11-10 / 1 min read</div>
-                                    <div class="mdui-m-b-2 mdui-typo post-neirong"><p>通过伪类的定位居中到父元素实现，直接上CSS</p>
+                                    <div class="post-title  mdui-m-b-1">圆弧CSS绘制和常用网页宽高属性</div>
+                                    <div class="mdui-typo-body-2 mdui-m-b-2" datetime="2020-11-10 10:56:37">2020-11-10 / 2 min read</div>
+                                    <div class="mdui-m-b-2 mdui-typo post-neirong"><p>圆弧：通过伪类的定位居中到父元素实现，直接上CSS</p>
 <pre><code class="language-css">#box {
     height: 100px;
     position: relative;
@@ -76,12 +76,28 @@
     z-index: -1;
     border-radius: 0 0 50% 50%;
     background-color: aquamarine;
-}</code></pre>
+}
+</code></pre>
+<p>宽高获取</p>
+<pre><code class="language-text">document.body.clientWidth;              // 网页可见区域宽(body)
+document.body.clientHeight;             // 网页可见区域高(body)
+document.body.offsetWidth;              // 网页可见区域宽(body)，包括border、margin等
+document.body.offsetHeight;             // 网页可见区域宽(body)，包括border、margin等
+document.body.scrollWidth;              // 网页正文全文宽，包括有滚动条时的未见区域
+document.body.scrollHeight;             // 网页正文全文高，包括有滚动条时的未见区域
+document.body.scrollTop;                // 网页被卷去的Top(滚动条)
+document.body.scrollLeft;               // 网页被卷去的Left(滚动条)
+window.screenTop;                       // 浏览器距离Top
+window.screenLeft;                      // 浏览器距离Left
+window.screen.height;                   // 屏幕分辨率的高
+window.screen.width;                    // 屏幕分辨率的宽
+window.screen.availHeight;              // 屏幕可用工作区的高
+window.screen.availWidth;               // 屏幕可用工作区的宽</code></pre>
 </div>
                                     <div class="mdui-divider mdui-m-b-2"></div>
                                     <div class="mdui-row-xs-2 post-fenye">
                                        
-                                        <div class="mdui-col"> </div>
+                                        <div class="mdui-col"> <div class="mdui-text-left"><a href="https://chenlongcheck.github.io/post/zheng-ze/">正则</a></div></div>
                                         
 
                                         

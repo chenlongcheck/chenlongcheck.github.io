@@ -3,7 +3,7 @@
         <head>
         <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no" />
         <meta charset="utf-8">
-        <title>文件下载 | 个人网站</title>
+        <title>正则 | 个人网站</title>
         <link rel="stylesheet" href="https://chenlongcheck.github.io/styles/main.css">
         <link rel="stylesheet" href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css">
         <link href="https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css" rel="stylesheet">
@@ -56,98 +56,39 @@
                 <div class="mdui-row">
                         <div class="mdui-col-md-8 mdui-col-offset-md-2 ">
                                 <article class="mdui-p-a-2 post animated fadeIn" style="animation-delay: 0.8s;animation-duration: 2s">
-                                    <div class="post-title  mdui-m-b-1">文件下载</div>
-                                    <div class="mdui-typo-body-2 mdui-m-b-2" datetime="2020-11-10 10:18:37">2020-11-10 / 3 min read</div>
-                                    <div class="mdui-m-b-2 mdui-typo post-neirong"><p>下载文档类型时可以用Blod对象接受<br>
-1 对header没有特殊要求时</p>
-<pre><code class="language-js">downloadFile(url) {
-    url = url[0] !== 'h' ? `http://${url}` : url
-    this.getBlob(url).then(blob =&gt; {
-        this.saveAs(blob);
-    });
-}
-getBlob(url) {
-    return new Promise(resolve =&gt; {
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', url, true);
-        xhr.responseType = 'blob';
-        xhr.onload = () =&gt; {
-            if (xhr.status === 200) {
-                resolve(xhr.response);
-            }
-        };
-        xhr.send();
-    });
-}
-saveAs(blob) {
-    if (window.navigator.msSaveOrOpenBlob) {
-        navigator.msSaveBlob(blob);
-    } else {
-        const link = document.createElement('a');
-        const body = document.querySelector('body');
-        link.href = window.URL.createObjectURL(blob);
-        link.download = '下载后文件名.xlsx';
-        link.style.display = 'none';
-        body.appendChild(link);
-
-        link.click();
-        body.removeChild(link);
-        window.URL.revokeObjectURL(link.href);
-    }
-}
-</code></pre>
-<p>2 对header有要求时可定义方法（注意请求方式是blod）</p>
-<pre><code class="language-js">function getExcel(path, data) {
-    return axios.get(path, { params: data, headers: { &quot;token&quot;: 12345 }, responseType: &quot;blob&quot; })
-}
-</code></pre>
-<p>处理正常返回时的Blod对象数据</p>
-<pre><code class="language-js">var blob = new Blob([res.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8' });   // type是接受的对应数据类型-这里是以excel为例-下面跟情况1的下载基本一致
-var downloadElement = document.createElement('a');
-var href = window.URL.createObjectURL(blob); //创建下载的链接
-downloadElement.href = href;
-downloadElement.download = '下载后文件名'; //
-document.body.appendChild(downloadElement);
-downloadElement.click(); //点击下载
-document.body.removeChild(downloadElement); //下载完成移除元素
-window.URL.revokeObjectURL(href); //释放掉blob对象 
-</code></pre>
-<p>提供常用下载type类型</p>
-<pre><code class="language-text">.doc	application/msword
-.docx	application/vnd.openxmlformats-officedocument.wordprocessingml.document
-.xls	application/vnd.ms-excel
-.xlsx	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-.ppt	application/vnd.ms-powerpoint
-.pptx	application/vnd.openxmlformats-officedocument.presentationml.presentation
-需注意的是返回的数据都是Blod对象，解析错误消息可以使用FileReader
-```js
-let data = error.response.data, errMsg = null;
-var reader = new FileReader();
-reader.readAsText(data, 'utf-8');
-reader.onload = () =&gt; {
-    errMsg = JSON.parse(reader.result);
-}
-</code></pre>
-<p>3 下载时由于跨域等限制无法重命名</p>
-<pre><code class="language-js">&lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/downloadjs/1.3.1/download.min.js&quot;&gt;&lt;/script&gt;  // 引入第三方download.js
-function downloadIamge() {
-    var x = new XMLHttpRequest();
-    x.open(&quot;GET&quot;, &quot;https://mirror-gold-cdn.xitu.io/1693847d078aa892aaa?imageView2/1/w/100/h/100/q/85/format/webp/interlace/1&quot;, true);
-    x.responseType = &quot;blob&quot;;
-    x.onload = function (e) {
-        download(e.target.response, &quot;awesomesauce.png&quot;, &quot;image/png&quot;);
-    };
-    x.send();
-}</code></pre>
+                                    <div class="post-title  mdui-m-b-1">正则</div>
+                                    <div class="mdui-typo-body-2 mdui-m-b-2" datetime="2020-11-10 11:03:26">2020-11-10 / 1 min read</div>
+                                    <div class="mdui-m-b-2 mdui-typo post-neirong"><p>常用正则收集（持续更新）<br>
+网页：<a href="https://www.cnblogs.com/bigkuan/p/12166290.html">https://www.cnblogs.com/bigkuan/p/12166290.html</a></p>
+<pre><code class="language-text">6到18位数字和字母组合
+/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,18}$/
+8位号码
+/^[1-9](\d{7})$/
+11位手机号码
+/^[1][2,3,4,5,6,7,8,9][0-9]{9}$/
+可带区号的7-8位座机
+/^((\d{3,4}-)|\d{3.4}-)?\d{7,8}$/
+前空格
+/^\s\s*/
+后空格
+/\s\s*$/
+首位空格
+/^[\s　]|[ ]$/gi
+匹配汉字
+/^[\u4e00-\u9fa5]+$/i
+非0开头(正整数)
+/^[1-9]\d*$/
+0-100正整数
+/^(?:0|[1-9][0-9]?|100)$/</code></pre>
 </div>
                                     <div class="mdui-divider mdui-m-b-2"></div>
                                     <div class="mdui-row-xs-2 post-fenye">
                                        
-                                        <div class="mdui-col"> <div class="mdui-text-left"><a href="https://chenlongcheck.github.io/post/yuan-hu-css-hui-zhi/">圆弧CSS绘制和常用网页宽高属性</a></div></div>
+                                        <div class="mdui-col"> </div>
                                         
 
                                         
-                                        <div class="mdui-col"><div class="mdui-text-right "><a href="https://chenlongcheck.github.io/post/debounce-throttle/">防抖和节流</a></div> </div>
+                                        <div class="mdui-col"><div class="mdui-text-right "><a href="https://chenlongcheck.github.io/post/yuan-hu-css-hui-zhi/">圆弧CSS绘制和常用网页宽高属性</a></div> </div>
                                        
                                       </div>
                                    
