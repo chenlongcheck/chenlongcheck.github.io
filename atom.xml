@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chenlongcheck.github.io</id>
     <title>个人网站</title>
-    <updated>2021-08-10T02:53:41.576Z</updated>
+    <updated>2021-08-24T02:58:36.213Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chenlongcheck.github.io"/>
     <link rel="self" href="https://chenlongcheck.github.io/atom.xml"/>
@@ -10,6 +10,16 @@
     <logo>https://chenlongcheck.github.io/images/avatar.png</logo>
     <icon>https://chenlongcheck.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 个人网站</rights>
+    <entry>
+        <title type="html"><![CDATA[react轻提示插件rc-notification]]></title>
+        <id>https://chenlongcheck.github.io/post/react-qing-ti-shi-cha-jian-rc-notification/</id>
+        <link href="https://chenlongcheck.github.io/post/react-qing-ti-shi-cha-jian-rc-notification/">
+        </link>
+        <updated>2021-08-24T02:42:49.000Z</updated>
+        <content type="html"><![CDATA[<p>在一个大屏项目中需要一个提示的插件，之前项目都是用的antd的组件，里面的message是向外暴露的api方法，点击进去才发现的rc-notification（https://www.npmjs.com/package/rc-notification）。<br>
+自定义message对象，带有success，warn，error方法，由此简单生成全局提示，可以根据notification的配置对象生成更复杂的对象属性</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[正则]]></title>
         <id>https://chenlongcheck.github.io/post/zheng-ze/</id>
@@ -85,95 +95,6 @@ window.screen.height;                   // 屏幕分辨率的高
 window.screen.width;                    // 屏幕分辨率的宽
 window.screen.availHeight;              // 屏幕可用工作区的高
 window.screen.availWidth;               // 屏幕可用工作区的宽</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[文件下载]]></title>
-        <id>https://chenlongcheck.github.io/post/wen-jian-xia-zai/</id>
-        <link href="https://chenlongcheck.github.io/post/wen-jian-xia-zai/">
-        </link>
-        <updated>2020-11-10T02:18:37.000Z</updated>
-        <content type="html"><![CDATA[<p>下载文档类型时可以用Blod对象接受<br>
-1 对header没有特殊要求时</p>
-<pre><code class="language-js">downloadFile(url) {
-    url = url[0] !== 'h' ? `http://${url}` : url
-    this.getBlob(url).then(blob =&gt; {
-        this.saveAs(blob);
-    });
-}
-getBlob(url) {
-    return new Promise(resolve =&gt; {
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', url, true);
-        xhr.responseType = 'blob';
-        xhr.onload = () =&gt; {
-            if (xhr.status === 200) {
-                resolve(xhr.response);
-            }
-        };
-        xhr.send();
-    });
-}
-saveAs(blob) {
-    if (window.navigator.msSaveOrOpenBlob) {
-        navigator.msSaveBlob(blob);
-    } else {
-        const link = document.createElement('a');
-        const body = document.querySelector('body');
-        link.href = window.URL.createObjectURL(blob);
-        link.download = '下载后文件名.xlsx';
-        link.style.display = 'none';
-        body.appendChild(link);
-
-        link.click();
-        body.removeChild(link);
-        window.URL.revokeObjectURL(link.href);
-    }
-}
-</code></pre>
-<p>2 对header有要求时可定义方法（注意请求方式是blod）</p>
-<pre><code class="language-js">function getExcel(path, data) {
-    return axios.get(path, { params: data, headers: { &quot;token&quot;: 12345 }, responseType: &quot;blob&quot; })
-}
-</code></pre>
-<p>处理正常返回时的Blod对象数据</p>
-<pre><code class="language-js">var blob = new Blob([res.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8' });   // type是接受的对应数据类型-这里是以excel为例-下面跟情况1的下载基本一致
-var downloadElement = document.createElement('a');
-var href = window.URL.createObjectURL(blob); //创建下载的链接
-downloadElement.href = href;
-downloadElement.download = '下载后文件名'; //
-document.body.appendChild(downloadElement);
-downloadElement.click(); //点击下载
-document.body.removeChild(downloadElement); //下载完成移除元素
-window.URL.revokeObjectURL(href); //释放掉blob对象 
-</code></pre>
-<p>提供常用下载type类型</p>
-<pre><code class="language-text">.doc	application/msword
-.docx	application/vnd.openxmlformats-officedocument.wordprocessingml.document
-.xls	application/vnd.ms-excel
-.xlsx	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-.ppt	application/vnd.ms-powerpoint
-.pptx	application/vnd.openxmlformats-officedocument.presentationml.presentation
-需注意的是返回的数据都是Blod对象，解析错误消息可以使用FileReader
-```js
-let data = error.response.data, errMsg = null;
-var reader = new FileReader();
-reader.readAsText(data, 'utf-8');
-reader.onload = () =&gt; {
-    errMsg = JSON.parse(reader.result);
-}
-</code></pre>
-<p>3 下载时由于跨域等限制无法重命名</p>
-<pre><code class="language-js">&lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/downloadjs/1.3.1/download.min.js&quot;&gt;&lt;/script&gt;  // 引入第三方download.js
-function downloadIamge() {
-    var x = new XMLHttpRequest();
-    x.open(&quot;GET&quot;, &quot;https://mirror-gold-cdn.xitu.io/1693847d078aa892aaa?imageView2/1/w/100/h/100/q/85/format/webp/interlace/1&quot;, true);
-    x.responseType = &quot;blob&quot;;
-    x.onload = function (e) {
-        download(e.target.response, &quot;awesomesauce.png&quot;, &quot;image/png&quot;);
-    };
-    x.send();
-}</code></pre>
 ]]></content>
     </entry>
 </feed>
