@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chenlongcheck.github.io</id>
     <title>个人网站</title>
-    <updated>2021-09-17T08:12:59.561Z</updated>
+    <updated>2021-10-08T09:16:31.487Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chenlongcheck.github.io"/>
     <link rel="self" href="https://chenlongcheck.github.io/atom.xml"/>
@@ -10,6 +10,17 @@
     <logo>https://chenlongcheck.github.io/images/avatar.png</logo>
     <icon>https://chenlongcheck.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 个人网站</rights>
+    <entry>
+        <title type="html"><![CDATA[antd主题引入]]></title>
+        <id>https://chenlongcheck.github.io/post/antd-zhu-ti-yin-ru/</id>
+        <link href="https://chenlongcheck.github.io/post/antd-zhu-ti-yin-ru/">
+        </link>
+        <updated>2021-10-08T08:47:01.000Z</updated>
+        <content type="html"><![CDATA[<p>1 使用create-react-app创建项目未执行eject命令时可参照官网https://ant.design/docs/react/customize-theme-cn的文档<br>
+2 执行eject命令后，需在less-loader下配置javascriptEnabled: true才能引入antd的less文件，参照截图：<img src="https://chenlongcheck.github.io/post-images/1633683069095.png" alt="" loading="lazy"><br>
+其中getThemeVariables是引入const { getThemeVariables } = require('antd/dist/theme')</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[react轻提示插件rc-notification]]></title>
         <id>https://chenlongcheck.github.io/post/react-qing-ti-shi-cha-jian-rc-notification/</id>
@@ -52,50 +63,6 @@
 /^[1-9]\d*$/
 0-100正整数
 /^(?:0|[1-9][0-9]?|100)$/</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[圆弧CSS绘制和常用网页宽高属性]]></title>
-        <id>https://chenlongcheck.github.io/post/yuan-hu-css-hui-zhi/</id>
-        <link href="https://chenlongcheck.github.io/post/yuan-hu-css-hui-zhi/">
-        </link>
-        <updated>2020-11-10T02:56:37.000Z</updated>
-        <content type="html"><![CDATA[<p>圆弧：通过伪类的定位居中到父元素实现，直接上CSS<br>
-<img src="https://chenlongcheck.github.io/post-images/1631866373362.png" alt="" loading="lazy"></p>
-<pre><code class="language-css">#box {
-    height: 100px;
-    position: relative;
-    z-index: -1;
-    overflow: hidden;
-}
-
-#box::after {
-    content: '';
-    width: 140%;
-    height: 100px;
-    position: absolute;
-    left: -20%;
-    top: 0;
-    z-index: -1;
-    border-radius: 0 0 50% 50%;
-    background-color: aquamarine;
-}
-</code></pre>
-<p>宽高获取</p>
-<pre><code class="language-text">document.body.clientWidth;              // 网页可见区域宽(body)
-document.body.clientHeight;             // 网页可见区域高(body)
-document.body.offsetWidth;              // 网页可见区域宽(body)，包括border、margin等
-document.body.offsetHeight;             // 网页可见区域宽(body)，包括border、margin等
-document.body.scrollWidth;              // 网页正文全文宽，包括有滚动条时的未见区域
-document.body.scrollHeight;             // 网页正文全文高，包括有滚动条时的未见区域
-document.body.scrollTop;                // 网页被卷去的Top(滚动条)
-document.body.scrollLeft;               // 网页被卷去的Left(滚动条)
-window.screenTop;                       // 浏览器距离Top
-window.screenLeft;                      // 浏览器距离Left
-window.screen.height;                   // 屏幕分辨率的高
-window.screen.width;                    // 屏幕分辨率的宽
-window.screen.availHeight;              // 屏幕可用工作区的高
-window.screen.availWidth;               // 屏幕可用工作区的宽</code></pre>
 ]]></content>
     </entry>
 </feed>
