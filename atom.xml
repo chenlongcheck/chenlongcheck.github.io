@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chenlongcheck.github.io</id>
     <title>个人网站</title>
-    <updated>2021-10-22T09:24:22.240Z</updated>
+    <updated>2021-10-22T09:26:07.921Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chenlongcheck.github.io"/>
     <link rel="self" href="https://chenlongcheck.github.io/atom.xml"/>
@@ -29,7 +29,7 @@ auto: 对于用户可见区域的元素，浏览器会正常渲染其内容；�
         <link href="https://chenlongcheck.github.io/post/antd-zhu-ti-yin-ru/">
         </link>
         <updated>2021-10-08T08:47:01.000Z</updated>
-        <content type="html"><![CDATA[<p>1 使用create-react-app创建项目未执行eject命令时可参照官网https://ant.design/docs/react/customize-theme-cn的文档<br>
+        <content type="html"><![CDATA[<p>1 使用create-react-app创建项目未执行eject命令时可参照<a href="https://ant.design/docs/react/customize-theme-cn">官网</a>的文档<br>
 2 执行eject命令后，需在less-loader下配置javascriptEnabled: true才能引入antd的less文件，参照截图：<img src="https://chenlongcheck.github.io/post-images/1633683069095.png" alt="" loading="lazy"><br>
 其中getThemeVariables是引入const { getThemeVariables } = require('antd/dist/theme')</p>
 ]]></content>
