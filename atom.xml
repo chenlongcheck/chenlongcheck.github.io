@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chenlongcheck.github.io</id>
     <title>个人网站</title>
-    <updated>2021-10-22T09:29:12.674Z</updated>
+    <updated>2021-10-22T09:30:43.338Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chenlongcheck.github.io"/>
     <link rel="self" href="https://chenlongcheck.github.io/atom.xml"/>
@@ -16,7 +16,7 @@
         <link href="https://chenlongcheck.github.io/post/wang-ye-zhi-jia-zai-ke-jian-qu-yu-nei-rong-shi-wang-ye-de-xuan-ran-xing-neng-de-dao-shu-bei-de-ti-sheng/">
         </link>
         <updated>2021-10-22T09:17:19.000Z</updated>
-        <content type="html"><![CDATA[<p>content-visibility  <a href="https://caniuse.com/?search=content-visibility">兼容性</a></p>
+        <content type="html"><![CDATA[<p>content-visibility  <a href="https://caniuse.com/?search=content-visibility">兼容性</a> <a href="https://mp.weixin.qq.com/s/k2cxRDH1ewSh7F7IlHfVdQ">原文</a></p>
 <pre><code class="language-text">visible: 默认值。对布局和呈现不会产生什么影响。
 hidden: 元素跳过其内容的呈现。用户代理功能（例如，在页面中查找，按Tab键顺序导航等）不可访问已
 跳过的内容，也不能选择或聚焦。类似于对其内容设置了display: none属性。
