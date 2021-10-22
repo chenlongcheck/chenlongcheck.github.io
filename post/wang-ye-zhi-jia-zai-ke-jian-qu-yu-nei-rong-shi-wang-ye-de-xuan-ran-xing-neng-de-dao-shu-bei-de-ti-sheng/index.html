@@ -3,7 +3,7 @@
         <head>
         <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no" />
         <meta charset="utf-8">
-        <title>antd主题引入 | 个人网站</title>
+        <title>网页只加载可见区域内容，使网页的渲染性能得到数倍的提升！ | 个人网站</title>
         <link rel="stylesheet" href="https://chenlongcheck.github.io/styles/main.css">
         <link rel="stylesheet" href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css">
         <link href="https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css" rel="stylesheet">
@@ -56,20 +56,22 @@
                 <div class="mdui-row">
                         <div class="mdui-col-md-8 mdui-col-offset-md-2 ">
                                 <article class="mdui-p-a-2 post animated fadeIn" style="animation-delay: 0.8s;animation-duration: 2s">
-                                    <div class="post-title  mdui-m-b-1">antd主题引入</div>
-                                    <div class="mdui-typo-body-2 mdui-m-b-2" datetime="2021-10-08 16:47:01">2021-10-08 / 1 min read</div>
-                                    <div class="mdui-m-b-2 mdui-typo post-neirong"><p>1 使用create-react-app创建项目未执行eject命令时可参照官网https://ant.design/docs/react/customize-theme-cn的文档<br>
-2 执行eject命令后，需在less-loader下配置javascriptEnabled: true才能引入antd的less文件，参照截图：<img src="https://chenlongcheck.github.io/post-images/1633683069095.png" alt="" loading="lazy"><br>
-其中getThemeVariables是引入const { getThemeVariables } = require('antd/dist/theme')</p>
+                                    <div class="post-title  mdui-m-b-1">网页只加载可见区域内容，使网页的渲染性能得到数倍的提升！</div>
+                                    <div class="mdui-typo-body-2 mdui-m-b-2" datetime="2021-10-22 17:17:19">2021-10-22 / 1 min read</div>
+                                    <div class="mdui-m-b-2 mdui-typo post-neirong"><p>content-visibility  <a href="https://caniuse.com/?search=content-visibility">兼容性</a></p>
+<pre><code class="language-text">visible: 默认值。对布局和呈现不会产生什么影响。
+hidden: 元素跳过其内容的呈现。用户代理功能（例如，在页面中查找，按Tab键顺序导航等）不可访问已
+跳过的内容，也不能选择或聚焦。类似于对其内容设置了display: none属性。
+auto: 对于用户可见区域的元素，浏览器会正常渲染其内容；对于不可见区域的元素，浏览器会暂时跳过其内容的呈现，等到其处于用户可见区域时，浏览器在渲染其内容。</code></pre>
 </div>
                                     <div class="mdui-divider mdui-m-b-2"></div>
                                     <div class="mdui-row-xs-2 post-fenye">
                                        
-                                        <div class="mdui-col"> <div class="mdui-text-left"><a href="https://chenlongcheck.github.io/post/wang-ye-zhi-jia-zai-ke-jian-qu-yu-nei-rong-shi-wang-ye-de-xuan-ran-xing-neng-de-dao-shu-bei-de-ti-sheng/">网页只加载可见区域内容，使网页的渲染性能得到数倍的提升！</a></div></div>
+                                        <div class="mdui-col"> </div>
                                         
 
                                         
-                                        <div class="mdui-col"><div class="mdui-text-right "><a href="https://chenlongcheck.github.io/post/react-qing-ti-shi-cha-jian-rc-notification/">react轻提示插件rc-notification</a></div> </div>
+                                        <div class="mdui-col"><div class="mdui-text-right "><a href="https://chenlongcheck.github.io/post/antd-zhu-ti-yin-ru/">antd主题引入</a></div> </div>
                                        
                                       </div>
                                    

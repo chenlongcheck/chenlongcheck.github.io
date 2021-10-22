@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chenlongcheck.github.io</id>
     <title>个人网站</title>
-    <updated>2021-10-08T09:26:01.456Z</updated>
+    <updated>2021-10-22T09:24:22.240Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chenlongcheck.github.io"/>
     <link rel="self" href="https://chenlongcheck.github.io/atom.xml"/>
@@ -10,6 +10,19 @@
     <logo>https://chenlongcheck.github.io/images/avatar.png</logo>
     <icon>https://chenlongcheck.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 个人网站</rights>
+    <entry>
+        <title type="html"><![CDATA[网页只加载可见区域内容，使网页的渲染性能得到数倍的提升！]]></title>
+        <id>https://chenlongcheck.github.io/post/wang-ye-zhi-jia-zai-ke-jian-qu-yu-nei-rong-shi-wang-ye-de-xuan-ran-xing-neng-de-dao-shu-bei-de-ti-sheng/</id>
+        <link href="https://chenlongcheck.github.io/post/wang-ye-zhi-jia-zai-ke-jian-qu-yu-nei-rong-shi-wang-ye-de-xuan-ran-xing-neng-de-dao-shu-bei-de-ti-sheng/">
+        </link>
+        <updated>2021-10-22T09:17:19.000Z</updated>
+        <content type="html"><![CDATA[<p>content-visibility  <a href="https://caniuse.com/?search=content-visibility">兼容性</a></p>
+<pre><code class="language-text">visible: 默认值。对布局和呈现不会产生什么影响。
+hidden: 元素跳过其内容的呈现。用户代理功能（例如，在页面中查找，按Tab键顺序导航等）不可访问已
+跳过的内容，也不能选择或聚焦。类似于对其内容设置了display: none属性。
+auto: 对于用户可见区域的元素，浏览器会正常渲染其内容；对于不可见区域的元素，浏览器会暂时跳过其内容的呈现，等到其处于用户可见区域时，浏览器在渲染其内容。</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[antd主题引入]]></title>
         <id>https://chenlongcheck.github.io/post/antd-zhu-ti-yin-ru/</id>
@@ -29,40 +42,6 @@
         <updated>2021-08-24T02:42:49.000Z</updated>
         <content type="html"><![CDATA[<p>在一个大屏项目中需要一个提示的插件，之前项目都是用的antd的组件，里面的message是向外暴露的api方法，点击进去才发现的rc-notification（https://www.npmjs.com/package/rc-notification）。<br>
 自定义message对象，带有success，warn，error方法，由此简单生成全局提示，可以根据notification的配置对象生成更复杂的对象属性</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[正则]]></title>
-        <id>https://chenlongcheck.github.io/post/zheng-ze/</id>
-        <link href="https://chenlongcheck.github.io/post/zheng-ze/">
-        </link>
-        <updated>2020-11-10T03:03:26.000Z</updated>
-        <content type="html"><![CDATA[<p>常用正则收集（持续更新）<br>
-网页：<a href="https://www.cnblogs.com/bigkuan/p/12166290.html">https://www.cnblogs.com/bigkuan/p/12166290.html</a></p>
-<pre><code class="language-text">6到18位数字和字母组合
-/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,18}$/
-8位号码
-/^[1-9](\d{7})$/
-11位手机号码
-/^[1][2,3,4,5,6,7,8,9][0-9]{9}$/
-可带区号的7-8位座机
-/^((\d{3,4}-)|\d{3.4}-)?\d{7,8}$/
-座机号码（可带区号）
-/(^[0-9]{3,4}-[0-9]{3,8}$)|(^[0-9]{3,8}$)|(^[0−9]3,4[0-9]{3,8}$)|(^0{0,1}13[0-9]{9}$)/
-前空格
-/^\s\s*/
-后空格
-/\s\s*$/
-首位空格
-/^[\s　]|[ ]$/gi
-匹配汉字
-/^[\u4e00-\u9fa5]+$/i
-是否为数字
-/^[0-9]*$/
-非0开头(正整数)
-/^[1-9]\d*$/
-0-100正整数
-/^(?:0|[1-9][0-9]?|100)$/</code></pre>
 ]]></content>
     </entry>
 </feed>
