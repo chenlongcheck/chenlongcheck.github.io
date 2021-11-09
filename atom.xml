@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chenlongcheck.github.io</id>
     <title>个人网站</title>
-    <updated>2021-10-22T09:30:43.338Z</updated>
+    <updated>2021-11-09T08:53:05.853Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chenlongcheck.github.io"/>
     <link rel="self" href="https://chenlongcheck.github.io/atom.xml"/>
@@ -24,14 +24,17 @@ auto: 对于用户可见区域的元素，浏览器会正常渲染其内容；�
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[antd主题引入]]></title>
+        <title type="html"><![CDATA[antd主题引入和第三方Icon样式]]></title>
         <id>https://chenlongcheck.github.io/post/antd-zhu-ti-yin-ru/</id>
         <link href="https://chenlongcheck.github.io/post/antd-zhu-ti-yin-ru/">
         </link>
         <updated>2021-10-08T08:47:01.000Z</updated>
-        <content type="html"><![CDATA[<p>1 使用create-react-app创建项目未执行eject命令时可参照<a href="https://ant.design/docs/react/customize-theme-cn">官网</a>的文档<br>
+        <content type="html"><![CDATA[<p>主题<br>
+1 使用create-react-app创建项目未执行eject命令时可参照<a href="https://ant.design/docs/react/customize-theme-cn">官网</a>的文档<br>
 2 执行eject命令后，需在less-loader下配置javascriptEnabled: true才能引入antd的less文件，参照截图：<img src="https://chenlongcheck.github.io/post-images/1633683069095.png" alt="" loading="lazy"><br>
 其中getThemeVariables是引入const { getThemeVariables } = require('antd/dist/theme')</p>
+<p>Icon<br>
+1 使用第三方svg代码时需要修改fill属性为currentColor，字体大小需要将svg属性的width和height修改为1em（继承父级），注意不要写行内样式，避免类样式无法生效</p>
 ]]></content>
     </entry>
     <entry>

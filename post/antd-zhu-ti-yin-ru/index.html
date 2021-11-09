@@ -3,7 +3,7 @@
         <head>
         <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no" />
         <meta charset="utf-8">
-        <title>antd主题引入 | 个人网站</title>
+        <title>antd主题引入和第三方Icon样式 | 个人网站</title>
         <link rel="stylesheet" href="https://chenlongcheck.github.io/styles/main.css">
         <link rel="stylesheet" href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css">
         <link href="https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css" rel="stylesheet">
@@ -56,11 +56,14 @@
                 <div class="mdui-row">
                         <div class="mdui-col-md-8 mdui-col-offset-md-2 ">
                                 <article class="mdui-p-a-2 post animated fadeIn" style="animation-delay: 0.8s;animation-duration: 2s">
-                                    <div class="post-title  mdui-m-b-1">antd主题引入</div>
+                                    <div class="post-title  mdui-m-b-1">antd主题引入和第三方Icon样式</div>
                                     <div class="mdui-typo-body-2 mdui-m-b-2" datetime="2021-10-08 16:47:01">2021-10-08 / 1 min read</div>
-                                    <div class="mdui-m-b-2 mdui-typo post-neirong"><p>1 使用create-react-app创建项目未执行eject命令时可参照<a href="https://ant.design/docs/react/customize-theme-cn">官网</a>的文档<br>
+                                    <div class="mdui-m-b-2 mdui-typo post-neirong"><p>主题<br>
+1 使用create-react-app创建项目未执行eject命令时可参照<a href="https://ant.design/docs/react/customize-theme-cn">官网</a>的文档<br>
 2 执行eject命令后，需在less-loader下配置javascriptEnabled: true才能引入antd的less文件，参照截图：<img src="https://chenlongcheck.github.io/post-images/1633683069095.png" alt="" loading="lazy"><br>
 其中getThemeVariables是引入const { getThemeVariables } = require('antd/dist/theme')</p>
+<p>Icon<br>
+1 使用第三方svg代码时需要修改fill属性为currentColor，字体大小需要将svg属性的width和height修改为1em（继承父级），注意不要写行内样式，避免类样式无法生效</p>
 </div>
                                     <div class="mdui-divider mdui-m-b-2"></div>
                                     <div class="mdui-row-xs-2 post-fenye">
