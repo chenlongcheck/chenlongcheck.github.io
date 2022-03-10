@@ -2,14 +2,39 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chenlongcheck.github.io</id>
     <title>个人网站</title>
-    <updated>2021-12-07T03:04:05.154Z</updated>
+    <updated>2022-03-10T03:22:52.623Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chenlongcheck.github.io"/>
     <link rel="self" href="https://chenlongcheck.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
     <logo>https://chenlongcheck.github.io/images/avatar.png</logo>
     <icon>https://chenlongcheck.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2021, 个人网站</rights>
+    <rights>All rights reserved 2022, 个人网站</rights>
+    <entry>
+        <title type="html"><![CDATA[react中input问题]]></title>
+        <id>https://chenlongcheck.github.io/post/react-zhong-input-wen-ti/</id>
+        <link href="https://chenlongcheck.github.io/post/react-zhong-input-wen-ti/">
+        </link>
+        <updated>2022-03-10T03:21:26.000Z</updated>
+        <content type="html"><![CDATA[<p>react中引入子组件循环渲染，子组件内部需要有唯一key值，否则input的默认值会出现错误显示</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[锚点跳转（react）]]></title>
+        <id>https://chenlongcheck.github.io/post/mao-dian-tiao-zhuan-react/</id>
+        <link href="https://chenlongcheck.github.io/post/mao-dian-tiao-zhuan-react/">
+        </link>
+        <updated>2022-02-11T06:53:24.000Z</updated>
+        <content type="html"><![CDATA[<p>const scrollToAnchor = (anchorName) =&gt; {<br>
+if (anchorName) {<br>
+// 找到锚点<br>
+let anchorElement = document.getElementById(anchorName);<br>
+// 如果对应id的锚点存在，就跳转到锚点<br>
+if (anchorElement) { anchorElement.scrollIntoView(); }<br>
+}<br>
+}</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[网页只加载可见区域内容，使网页的渲染性能得到数倍的提升！]]></title>
         <id>https://chenlongcheck.github.io/post/wang-ye-zhi-jia-zai-ke-jian-qu-yu-nei-rong-shi-wang-ye-de-xuan-ran-xing-neng-de-dao-shu-bei-de-ti-sheng/</id>
@@ -21,30 +46,6 @@
 hidden: 元素跳过其内容的呈现。用户代理功能（例如，在页面中查找，按Tab键顺序导航等）不可访问已
 跳过的内容，也不能选择或聚焦。类似于对其内容设置了display: none属性。
 auto: 对于用户可见区域的元素，浏览器会正常渲染其内容；对于不可见区域的元素，浏览器会暂时跳过其内容的呈现，等到其处于用户可见区域时，浏览器在渲染其内容。</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[antd主题引入和第三方Icon样式]]></title>
-        <id>https://chenlongcheck.github.io/post/antd-zhu-ti-yin-ru/</id>
-        <link href="https://chenlongcheck.github.io/post/antd-zhu-ti-yin-ru/">
-        </link>
-        <updated>2021-10-08T08:47:01.000Z</updated>
-        <content type="html"><![CDATA[<p>主题<br>
-1 使用create-react-app创建项目未执行eject命令时可参照<a href="https://ant.design/docs/react/customize-theme-cn">官网</a>的文档<br>
-2 执行eject命令后，需在less-loader下配置javascriptEnabled: true才能引入antd的less文件，参照截图：<img src="https://chenlongcheck.github.io/post-images/1633683069095.png" alt="" loading="lazy"><br>
-其中getThemeVariables是引入const { getThemeVariables } = require('antd/dist/theme')</p>
-<p>Icon<br>
-1 使用第三方svg代码时需要修改fill属性为currentColor，字体大小需要将svg属性的width和height修改为1em（继承父级），注意不要写行内样式，避免类样式无法生效</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[react轻提示插件rc-notification]]></title>
-        <id>https://chenlongcheck.github.io/post/react-qing-ti-shi-cha-jian-rc-notification/</id>
-        <link href="https://chenlongcheck.github.io/post/react-qing-ti-shi-cha-jian-rc-notification/">
-        </link>
-        <updated>2021-08-24T02:42:49.000Z</updated>
-        <content type="html"><![CDATA[<p>在一个大屏项目中需要一个提示的插件，之前项目都是用的antd的组件，里面的message是向外暴露的api方法，点击进去才发现的rc-notification（https://www.npmjs.com/package/rc-notification）。<br>
-自定义message对象，带有success，warn，error方法，由此简单生成全局提示，可以根据notification的配置对象生成更复杂的对象属性</p>
 ]]></content>
     </entry>
 </feed>
