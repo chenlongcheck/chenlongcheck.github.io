@@ -3,7 +3,7 @@
         <head>
         <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no" />
         <meta charset="utf-8">
-        <title>高德、百度、腾讯经纬度转换 | 个人网站</title>
+        <title>react | 个人网站</title>
         <link rel="stylesheet" href="https://chenlongcheck.github.io/styles/main.css">
         <link rel="stylesheet" href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css">
         <link href="https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css" rel="stylesheet">
@@ -56,47 +56,19 @@
                 <div class="mdui-row">
                         <div class="mdui-col-md-8 mdui-col-offset-md-2 ">
                                 <article class="mdui-p-a-2 post animated fadeIn" style="animation-delay: 0.8s;animation-duration: 2s">
-                                    <div class="post-title  mdui-m-b-1">高德、百度、腾讯经纬度转换</div>
-                                    <div class="mdui-typo-body-2 mdui-m-b-2" datetime="2022-06-24 11:21:26">2022-06-24 / 1 min read</div>
-                                    <div class="mdui-m-b-2 mdui-typo post-neirong"><pre><code class="language-js">//将腾讯/高德地图经纬度转换为百度地图经纬度function qqMapTransBMap(lng, lat) {
-      let x_pi = 3.14159265358979324 * 3000.0 / 180.0;
-      let x = lng;
-      let y = lat;
-      let z = Math.sqrt(x * x + y * y) + 0.00002 * Math.sin(y * x_pi);
-      let theta = Math.atan2(y, x) + 0.000003 * Math.cos(x * x_pi);
-      let lngs = z * Math.cos(theta) + 0.0065;
-      let lats = z * Math.sin(theta) + 0.006;
-     
-      return {
-          lng: lngs,
-          lat: lats 
-      } 
-}
-</code></pre>
-<pre><code class="language-js">// 将百度地图经纬度转换为腾讯/高德地图经纬度function bMapTransQQMap(lng, lat) {
-      let x_pi = 3.14159265358979324 * 3000.0 / 180.0;
-      let x = lng - 0.0065;
-      let y = lat - 0.006;
-      let z = Math.sqrt(x * x + y * y) - 0.00002 * Math.sin(y * x_pi);
-      let theta = Math.atan2(y, x) - 0.000003 * Math.cos(x * x_pi);
-      let lngs = z * Math.cos(theta);
-      let lats = z * Math.sin(theta);
-      
-      return {
-          lng: lngs,
-          lat: lats        
-      }   
-}
+                                    <div class="post-title  mdui-m-b-1">react</div>
+                                    <div class="mdui-typo-body-2 mdui-m-b-2" datetime="2022-09-28 11:21:33">2022-09-28 / 1 min read</div>
+                                    <div class="mdui-m-b-2 mdui-typo post-neirong"><pre><code class="language-text">BrowserRouter使用时，本地启动，默认basename是在/上，网络代理后需要指向对应文件夹
 </code></pre>
 </div>
                                     <div class="mdui-divider mdui-m-b-2"></div>
                                     <div class="mdui-row-xs-2 post-fenye">
                                        
-                                        <div class="mdui-col"> <div class="mdui-text-left"><a href="https://chenlongcheck.github.io/post/react/">react</a></div></div>
+                                        <div class="mdui-col"> </div>
                                         
 
                                         
-                                        <div class="mdui-col"><div class="mdui-text-right "><a href="https://chenlongcheck.github.io/post/git/">Git</a></div> </div>
+                                        <div class="mdui-col"><div class="mdui-text-right "><a href="https://chenlongcheck.github.io/post/gao-de-bai-du-teng-xun-jing-wei-du-zhuan-huan/">高德、百度、腾讯经纬度转换</a></div> </div>
                                        
                                       </div>
                                    

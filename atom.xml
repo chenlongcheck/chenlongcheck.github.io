@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chenlongcheck.github.io</id>
     <title>个人网站</title>
-    <updated>2022-07-19T05:24:12.924Z</updated>
+    <updated>2022-09-28T03:23:08.062Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chenlongcheck.github.io"/>
     <link rel="self" href="https://chenlongcheck.github.io/atom.xml"/>
@@ -10,6 +10,16 @@
     <logo>https://chenlongcheck.github.io/images/avatar.png</logo>
     <icon>https://chenlongcheck.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, 个人网站</rights>
+    <entry>
+        <title type="html"><![CDATA[react]]></title>
+        <id>https://chenlongcheck.github.io/post/react/</id>
+        <link href="https://chenlongcheck.github.io/post/react/">
+        </link>
+        <updated>2022-09-28T03:21:33.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-text">BrowserRouter使用时，本地启动，默认basename是在/上，网络代理后需要指向对应文件夹
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[高德、百度、腾讯经纬度转换]]></title>
         <id>https://chenlongcheck.github.io/post/gao-de-bai-du-teng-xun-jing-wei-du-zhuan-huan/</id>
@@ -57,15 +67,6 @@
         <content type="html"><![CDATA[<p><img src="https://chenlongcheck.github.io/post-images/1651816582196.png" alt="" loading="lazy"><br>
 同步远程分支 git remote update origin --prune<br>
 <img src="https://chenlongcheck.github.io/post-images/1657004730307.jpg" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[react中input问题]]></title>
-        <id>https://chenlongcheck.github.io/post/react-zhong-input-wen-ti/</id>
-        <link href="https://chenlongcheck.github.io/post/react-zhong-input-wen-ti/">
-        </link>
-        <updated>2022-03-10T03:21:26.000Z</updated>
-        <content type="html"><![CDATA[<p>react中引入子组件循环渲染，子组件内部需要有唯一key值，否则input的默认值会出现错误显示</p>
 ]]></content>
     </entry>
 </feed>
